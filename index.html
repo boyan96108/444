@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>簡單記帳本</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">日常收支</p>
+          <h1>簡單記帳本</h1>
+          <p class="subtitle">快速記錄、即時掌握每一筆花費。</p>
+        </div>
+        <div class="total-card">
+          <p>目前總金額</p>
+          <p id="total-amount" class="total-money">NT$ 0</p>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>新增紀錄</h2>
+        <form id="entry-form" class="form">
+          <label class="form__group">
+            <span>日期</span>
+            <input type="date" id="date-input" required />
+          </label>
+          <label class="form__group">
+            <span>項目名稱</span>
+            <input
+              type="text"
+              id="name-input"
+              placeholder="例如：午餐、捷運"
+              required
+            />
+          </label>
+          <label class="form__group">
+            <span>金額</span>
+            <input
+              type="number"
+              id="amount-input"
+              min="0"
+              step="1"
+              placeholder="請輸入金額"
+              required
+            />
+          </label>
+          <button type="submit" class="btn-primary">新增紀錄</button>
+        </form>
+      </section>
+
+      <section class="card card--list">
+        <header class="card__header">
+          <div>
+            <h2>紀錄列表</h2>
+            <p>包含日期 / 項目 / 金額 / 刪除</p>
+          </div>
+          <button id="clear-all" class="ghost-btn" type="button">清空全部</button>
+        </header>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>項目</th>
+                <th>金額</th>
+                <th>刪除</th>
+              </tr>
+            </thead>
+            <tbody id="records-body">
+              <tr class="empty">
+                <td colspan="4">尚無紀錄，開始新增吧！</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
